@@ -22,7 +22,6 @@ local ngx_balancer = require("ngx.balancer")
 -- inner
 local name_service = require("ns.name_service")
 local tools_utils = require("tools.utils")
-local redis_api = require("redis.redis_api")
 local nsc_config = require("nsc_config")
 
 local tonumber = tonumber
@@ -121,23 +120,6 @@ function NSClient.balance(namespace, strategy)
     end
 end
 
-
--- http protocol to redis protocol
-function NSClient.get_data_from_redis(namespace)
-    local redis_config = nsc_config.redis
-    local service = get_random_service(namespace)
-    if service ~= nil then
-        local ip_port = pl_stringx.split(service, "_")
-        if ip_port ~= nil then
-            redis_config.ip = ip_port[1]
-            redis_config.port = ip_port[2]
-        end
-    else
-        ngx_log(ngx_err, "get_random_service failed, namespace: ", namespace)
-    end
-    -- get data from redis
-    redis_api.get_data_from_redis(redis_config)
-end
 
 -- example: namespace = {"cps.test.http", "uc.test.http"} or namespace = "cps.test.http"
 function NSClient.get_servers(namespace, strategy)
