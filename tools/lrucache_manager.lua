@@ -10,13 +10,13 @@ local _M = {}
 
 local cjson_safe = require "cjson.safe"
 local lrucache = require "resty.lrucache"
-local zynsc_config = require "zynsc_config"
+local nsc_config = require "nsc_config"
 
 local ngx_log = ngx.log
 local ngx_err = ngx.ERR
 local ngx_debug = ngx.DEBUG
-local lrucache_size = zynsc_config.name_service.lrucache_size
-local lrucache_timeout = zynsc_config.name_service.lrucache_timeout
+local lrucache_size = nsc_config.name_service.lrucache_size
+local lrucache_timeout = nsc_config.name_service.lrucache_timeout
 
 
 local lru_cache, err = lrucache.new(lrucache_size)  -- allow up to 200 items in the cache
