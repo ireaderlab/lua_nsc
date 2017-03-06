@@ -14,9 +14,7 @@ cp -r demos/vhosts /path/to/nginx/conf/vhosts
 ```
 3. add your service into zookeeper
 the zookeeper path prefix was configed in nsc_config.lua  zk_path_tpl
-
 nsc_config.lua config example:
-
 ```lua
 local NSC_CONFIG = {
     -- name service config
@@ -26,12 +24,9 @@ local NSC_CONFIG = {
         lrucache_size = 200,  -- lrucache size
     },
 }
-
 return NSC_CONFIG
 ```
-
 zookeeper config example:
-
 * node1 path is "/arch_group/test/test_namespace/192.168.56.101_10001"; node1 value is {"weight": 3}
 * ode2 path is "/arch_group/test/test_namespace/192.168.56.101_10002"; node2 value is {"weight": 2}
 * ode3 path is "/arch_group/test/test_namespace/192.168.56.101_10003"; node3 value is {"weight": 1}
