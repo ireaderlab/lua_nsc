@@ -3,6 +3,11 @@ dynamic upstreams control on nginx
 
 ## how to use
 
+### start qconf agent
+
+you can use start qconf by learn from [QConf](https://github.com/Qihoo360/QConf)
+lua_nsc is using qconf 1.1 and if you want to use 1.2 or higher please replace the ./package/libqconf.so and ./package/qconf.lua to 1.2 version
+
 ### install nginx with lua support
 
 my nginx config argument are as follow:
