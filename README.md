@@ -105,3 +105,7 @@ curl http://localhost:6677/
 curl http://localhost:6677/debug/upstream/servers
 
 
+## performance
+
+NGINX QPS can reach 10W/s, in theroy there was little performance impact, lua_nsc is at most 1% performance hit on nginx
+use ab to benchmark
